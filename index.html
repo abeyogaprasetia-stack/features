@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluent Conveyors - High-End 3D Industrial Conveyor Systems</title>
+    <meta name="description" content="Explore the technical engineering specifications of Fluent Conveyors' custom roller chain conveyors with our interactive 3D parallax scroll experience.">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- 1. Preloader Overlay -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo"><img src="./Fluent Conveyors Logo white.png" alt="Fluent Conveyors Logo"></div>
+            <div class="loader-progress-container">
+                <div class="loader-progress-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-status" id="loader-status">Initializing System...</div>
+        </div>
+    </div>
+
+    <!-- 2. Header Bar -->
+    <header class="header-bar">
+        <div class="logo"><img src="./Fluent Conveyors Logo white.png" alt="Fluent Conveyors Logo"></div>
+    </header>
+
+    <!-- 3. Canvas Container (Fixed viewport background) -->
+    <div class="canvas-container">
+        <canvas id="scroll-canvas"></canvas>
+        <div class="canvas-overlay" id="canvas-overlay"></div>
+    </div>
+
+    <!-- 4. SVG Connecting Lines -->
+    <div class="overlay-svg-container">
+        <svg id="connector-svg">
+            <path id="line-footpads" class="connector-path" d="" />
+            <path id="line-rail" class="connector-path" d="" />
+            <path id="line-motor" class="connector-path" d="" />
+        </svg>
+    </div>
+
+    <!-- 5. Hotspots Overlay -->
+    <div class="hotspots-container">
+        <!-- Hotspot 1: Adjustable Incline Foot Pads -->
+        <div id="hotspot-footpads" class="hotspot">
+            <div class="hotspot-inner"></div>
+            <div class="hotspot-ring-1"></div>
+            <div class="hotspot-ring-2"></div>
+        </div>
+
+        <!-- Hotspot 2: Heavy Duty Carrying Rail -->
+        <div id="hotspot-rail" class="hotspot">
+            <div class="hotspot-inner"></div>
+            <div class="hotspot-ring-1"></div>
+            <div class="hotspot-ring-2"></div>
+        </div>
+
+        <!-- Hotspot 3: Shaft Mounted Motor -->
+        <div id="hotspot-motor" class="hotspot">
+            <div class="hotspot-inner"></div>
+            <div class="hotspot-ring-1"></div>
+            <div class="hotspot-ring-2"></div>
+        </div>
+    </div>
+
+    <!-- 6. Scrollable Content Sections -->
+    <main id="app-container">
+        <div class="scroll-sections">
+            
+            <!-- Section 0: Intro Page -->
+            <section class="scroll-section center" id="section-intro">
+                <div class="intro-container visible" id="intro-content">
+                    <h1 class="title-main">Key Features</h1>
+                    <p class="intro-desc">
+                        Scroll down to dissect the industrial build quality, premium drives, and custom structures of Fluent Conveyors roller chain conveyor series.
+                    </p>
+                    <div class="scroll-prompt">
+                        SCROLL TO EXPLORE
+                        <div style="font-size: 1.2rem; margin-top: 5px;">↓</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Incline Foot Pads -->
+            <section class="scroll-section left" id="section-footpads">
+                <div class="feature-card" id="card-footpads">
+                    <h2 class="card-title">Adjustable Incline Foot Pads</h2>
+                    <p class="card-body">
+                        Delivered with everything you need for seamless installation. Fluent Conveyors provides each conveyor with supports that can adjust &plusmn; 1.75” on the above grade supports. These come standard with jacking bolts to allow for easier leveling and install, giving you a seamless experience.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: Heavy Duty Carrying Rail -->
+            <section class="scroll-section right" id="section-rail">
+                <div class="feature-card" id="card-rail">
+                    <h2 class="card-title">Heavy Duty Carrying Rail</h2>
+                    <p class="card-body">
+                        Load bearing guides for seamless performance. Fluent Conveyors roller chain conveyors use custom rolled and formed 25lb - 35lb rail for our carrying track.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3: Shaft Mounted Motor -->
+            <section class="scroll-section left" id="section-motor">
+                <div class="feature-card" id="card-motor">
+                    <h2 class="card-title">Shaft Mounted Motor</h2>
+                    <p class="card-body">
+                        Smooth drive guaranteed. Fluent Conveyors Specs Nord Gear drives and motors to provide a premium quality drive unit. <br><span style="font-size: 0.85em; opacity: 0.7;">*Other drive unit manufacturers can be supplied upon request.</span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Outro Page -->
+            <section class="scroll-section center" id="section-outro">
+                <div class="outro-container" id="outro-content">
+                    <h5 class="outro-subtitle">Reliable roller chain conveying for</h5>
+                    <h1 class="outro-title">high-load applications.</h1>
+                    <div class="outro-glow-line"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- 8. Calibration developer overlay (Toggle with 'D' or Double Click) -->
+    <div class="calibrator-overlay" id="calibrator">
+        <div class="calibrator-title">HOTSPOT CALIBRATION TOOL</div>
+        <div class="calibrator-row">
+            <span>Frame:</span>
+            <span id="cal-frame">1</span>
+        </div>
+        <div class="calibrator-row">
+            <span>Canvas X:</span>
+            <span id="cal-x">0%</span>
+        </div>
+        <div class="calibrator-row">
+            <span>Canvas Y:</span>
+            <span id="cal-y">0%</span>
+        </div>
+        <div class="calibrator-instruction">
+            <strong>Controls:</strong><br>
+            - Click on Canvas to log coordinates.<br>
+            - Use Arrow keys Left/Right to step frames.<br>
+            - Double click anywhere to toggle calibrator.
+        </div>
+        <div style="margin-top: 0.5rem; text-align: center;">
+            <button id="btn-copy-coords" style="background: var(--color-primary); border: none; color: #fff; padding: 3px 8px; border-radius: 3px; font-family: monospace; font-size: 0.65rem; cursor: pointer;">Copy Coordinates</button>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Core Application Code -->
+    <script src="./app.js"></script>
+
+</body>
+</html>
